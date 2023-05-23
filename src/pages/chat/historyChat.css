@@ -1,0 +1,19 @@
+.history__item__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    
+  }
+  
+  .history__item {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  .outgoing {
+    margin-left: auto;
+  }
+  

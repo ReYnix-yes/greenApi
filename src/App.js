@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/access/Login";
+import Chat from "./pages/chat/Chat";
+import "./App.css";
 
 function App() {
+  const [idValue, setIdValue] = useState("");
+  const [apiValue, setApiValue] = useState("");
+
+  function handleIdCallback(id) {
+    console.log(id)
+    setIdValue(id);
+  }
+
+  function handleApiCallback(api) {
+    console.log(api)
+    setApiValue(api);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Login id={handleIdCallback} api={handleApiCallback} />} />
+      <Route path="/Chat" element={<Chat idInstance={idValue} apiTokenInstance={apiValue} />} />
+    </Routes>
   );
 }
 
